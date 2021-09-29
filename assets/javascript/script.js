@@ -10,9 +10,6 @@ function writePassword() {
 
 }
 
-function generatePassword() {
-  var password = '';
-
 // Ask for number of characters
   // if the user didn't pick 8 or more, end app with error that password needs to be 8 or more characters
 // Ask yes/no for each type of character (lowercase, uppercase, numeric, special)
@@ -23,7 +20,33 @@ function generatePassword() {
   // generate a random number
   //grab a randonm character based on that number and append it (concatenate) to var password (password + random character)
 
+function generatePassword() {
 
+  var askLength = "";
+  var askLChar;
+  var askUChar;
+  var askNChar;
+  var askSChar;
+  
+  var lChar = "abcdefghijklmnopqrstuvwxyz";
+  var uChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var nChar = "0123456789";
+  var sChar = "!@#$%^&*()+="
+  var password = '';
+
+  var askLength = (prompt("How many characters would you like to include?"));
+
+  while (askLength <= 7 || askLength >= 128) {
+
+    alert("Password must be between 8-127 characters. Try again!");
+    var askLength = (prompt("How many characters would you like to include?"));
+
+  }
+
+
+  for (var i = 0; i < askLength; i++) {
+
+  }
   return password;
 }
 
