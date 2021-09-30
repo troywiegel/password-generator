@@ -85,18 +85,15 @@ function generatePassword() {
 
   }
 
-console.log(includedChar);
+ var randomPassword = []
 
-var randomPassword = "";
-
+ // creating for loop to generate random characters using user input(s)
  for (var i = 0; i < askLength; i++) {
 
-  randomPassword = includedChar[Math.floor(Math.random() * includedChar.length)];
-  
-  console.log(randomPassword)
+  randomPassword = randomPassword + includedChar[Math.floor(Math.random() * includedChar.length)];
 
   }
-  return password;
+  return randomPassword;
 }
 
 // Add event listener to generate button
