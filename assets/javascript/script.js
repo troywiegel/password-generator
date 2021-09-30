@@ -20,31 +20,80 @@ function writePassword() {
   // generate a random number
   //grab a randonm character based on that number and append it (concatenate) to var password (password + random character)
 
+// creating function for password generator information
 function generatePassword() {
-
-  var askLength = "";
-  var askLChar;
-  var askUChar;
-  var askNChar;
-  var askSChar;
   
-  var lChar = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var uChar = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var nChar = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var sChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "+", "="];
-  var password = '';
+  // declaring variables
+  var lowerChar = ["abcdefghijklmnopqrstuvwxyz"];
+  var upperChar = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ"];
+  var numberChar = ["0123456789"];
+  var specialChar = ["!@#$%^&*()+=?"];
 
+  // asking for the length of the password
   var askLength = (prompt("How many characters would you like to include?"));
 
-  while (askLength <= 7 || askLength >= 128) {
+  while (askLength < 8 || askLength > 30) {
 
-    alert("Password must be between 8-127 characters. Try again!");
+    alert("Password must be between 8-30 characters");
+    
     var askLength = (prompt("How many characters would you like to include?"));
 
   }
 
+  // asking if user would like to include various character types
+  var askLowerChar = confirm("Select OK to include lowercase characters(s)");
+  var askUpperChar = confirm("Select OK to include UPPERCASE character(s)");
+  var askNumberChar = confirm("Select OK to include number character(s)");
+  var askSpecialChar = confirm("Select OK to include special character(s)");
 
-  for (var i = 0; i < askLength; i++) {
+  // creating while loop to ensure valid inputs have been selected
+  while (askLowerChar === false && askUpperChar === false && askNumberChar === false && askSpecialChar === false) {
+
+    alert ("You must include atleast one parameter");
+
+  var askLowerChar = confirm("Select OK to include lowercase characters(s)");
+  var askUpperChar = confirm("Select OK to include UPPERCASE character(s)");
+  var askNumberChar = confirm("Select OK to include number character(s)");
+  var askSpecialChar = confirm("Select OK to include special character(s)");
+
+  }
+
+  // including types of characters if selected
+  var includedChar = "";
+
+  if (askLowerChar) {
+
+    includedChar = includedChar.concat(lowerChar);
+
+  }
+
+  if (askUpperChar) {
+
+    includedChar = includedChar.concat(upperChar);
+
+  }
+
+  if (askNumberChar) {
+
+    includedChar = includedChar.concat(numberChar);
+
+  }
+
+  if (askSpecialChar) {
+
+    includedChar = includedChar.concat(specialChar);
+
+  }
+
+console.log(includedChar);
+
+var randomPassword = "";
+
+ for (var i = 0; i < askLength; i++) {
+
+  randomPassword = includedChar[Math.floor(Math.random() * includedChar.length)];
+  
+  console.log(randomPassword)
 
   }
   return password;
