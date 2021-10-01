@@ -3,7 +3,7 @@
 I audited a password generator website and performd a code refactor. In this refactor I:
 
 * Added JavaScript code to meet all of the password generator's needs
-* Ensured the HTML code was laid out semantically and the CSS was responsive for all viewports
+* Created loops to ensure prompts are answered correctly, and if not answered correctly, prompt loops the question until the criteria is met
 * Tested the password generator to ensure it was following all of the input criteria and producing accurate passwords
 -----------------------------------------------------------------------------------------------------------------
 

@@ -22,9 +22,9 @@ function generatePassword() {
   // asking user for the length of the password
   var askLength = (prompt("How many characters would you like to include?"));
 
-  while (askLength < 8 || askLength > 30) {
+  while (askLength < 8 || askLength > 128) {
 
-    alert("Password must be between 8-30 characters");
+    alert("Password must be between 8-128 characters");
 
     var askLength = (prompt("How many characters would you like to include?"));
 
